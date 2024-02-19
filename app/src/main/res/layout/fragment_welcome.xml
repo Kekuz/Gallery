@@ -13,19 +13,28 @@
         android:src="@drawable/ic_welcome" />
 
     <TextView
-        android:layout_marginTop="16dp"
+        style="@style/title_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/greeting" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_sing_up"
+        style="@style/bnt_style"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="64dp"
         android:text="@string/create_an_account" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_sing_in"
+        style="@style/bnt_sing_up_style"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/i_already_have_an_account" />
 
 

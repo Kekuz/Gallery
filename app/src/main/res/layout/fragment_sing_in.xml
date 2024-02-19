@@ -1,14 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment_signin.SingInFragment">
+    tools:context=".ui.fragment_sing_in.SingInFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/btn_cancel"
+        style="@style/cancel_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="8dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-</FrameLayout>
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cancel" />
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/title_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/sing_in"
+        app:layout_constraintBottom_toTopOf="@id/view_under_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/view_under_title"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/main"
+        app:layout_constraintEnd_toEndOf="@+id/label"
+        app:layout_constraintBottom_toTopOf="@id/et_email"
+        app:layout_constraintStart_toStartOf="@+id/label"
+        app:layout_constraintTop_toBottomOf="@+id/label" />
+
+
+    <EditText
+        android:id="@+id/et_email"
+        style="@style/edit_text_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:autofillHints="emailAddress"
+        android:drawableEnd="@drawable/ic_mail"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        app:layout_constraintBottom_toTopOf="@id/et_password"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/view_under_title" />
+
+    <EditText
+        android:id="@+id/et_password"
+        style="@style/edit_text_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="password"
+        android:drawableEnd="@drawable/ic_eye_on"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="12dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_sing_in"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+
+    <Button
+        android:id="@+id/btn_sing_in"
+        style="@style/bnt_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:paddingHorizontal="48dp"
+        android:text="@string/sing_in"
+        app:layout_constraintBottom_toTopOf="@id/btn_sing_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <Button
+        android:id="@+id/btn_sing_up"
+        style="@style/bnt_transparent_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="48dp"
+        android:text="@string/sing_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sing_in" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

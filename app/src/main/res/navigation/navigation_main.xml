@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/singInFragment"
-        android:name="com.gallery.ui.fragment_signin.SingInFragment"
+        android:name="com.gallery.ui.fragment_sign_in.SingInFragment"
         android:label="fragment_sing_in"
         tools:layout="@layout/fragment_sing_in" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/singUpFragment"
-        android:name="com.gallery.ui.fragment_singup.SingUpFragment"
+        android:name="com.gallery.ui.fragment_sing_up.SingUpFragment"
         android:label="fragment_sing_up"
         tools:layout="@layout/fragment_sing_up" >
         <action
