@@ -1,0 +1,42 @@
+package com.gallery.ui.new_fragment
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.gallery.R
+import com.gallery.databinding.FragmentNewBinding
+import com.gallery.ui.new_fragment.mockup.MockupPictures
+import com.gallery.ui.new_fragment.recycler.PictureAdapter
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class NewFragment : Fragment() {
+    private lateinit var binding: FragmentNewBinding
+
+    private val adapter = PictureAdapter()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentNewBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.recycler.adapter = adapter
+
+        adapter.add(MockupPictures.get())
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            NewFragment()
+    }
+}

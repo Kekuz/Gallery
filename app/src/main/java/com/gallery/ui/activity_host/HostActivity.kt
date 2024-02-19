@@ -8,7 +8,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.gallery.R
 import com.gallery.databinding.ActivityHostBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHostBinding
     override fun onCreate(savedInstanceState: Bundle?) {
