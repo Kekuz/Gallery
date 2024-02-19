@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.gallery.ui.fragment_welcome.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_singInFragment"
+            app:destination="@id/singInFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_singUpFragment"
+            app:destination="@id/singUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singInFragment"
+        android:name="com.gallery.ui.fragment_signin.SingInFragment"
+        android:label="fragment_sing_in"
+        tools:layout="@layout/fragment_sing_in" >
+        <action
+            android:id="@+id/action_singInFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_singInFragment_to_singUpFragment"
+            app:destination="@id/singUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singUpFragment"
+        android:name="com.gallery.ui.fragment_singup.SingUpFragment"
+        android:label="fragment_sing_up"
+        tools:layout="@layout/fragment_sing_up" >
+        <action
+            android:id="@+id/action_singUpFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_singUpFragment_to_singInFragment"
+            app:destination="@id/singInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.gallery.ui.fragment_main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/addPhotoFragment"
+        android:name="com.gallery.ui.mockup.AddPhotoFragment"
+        android:label="fragment_add_photo"
+        tools:layout="@layout/fragment_add_photo" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.gallery.ui.mockup.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
