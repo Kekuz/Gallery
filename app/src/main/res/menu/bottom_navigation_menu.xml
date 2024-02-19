@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/mainFragment"
-        android:icon="@drawable/state_home"
+        android:icon="@drawable/ic_home"
         android:title="" />
 
     <item
         android:id="@+id/addPhotoFragment"
-        android:icon="@drawable/state_camera"
+        android:icon="@drawable/ic_camera"
         android:title="" />
 
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/state_profile"
+        android:icon="@drawable/ic_profile"
         android:title="" />
 
 </menu>

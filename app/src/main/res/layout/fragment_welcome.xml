@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/btn_sing_in"
-        style="@style/bnt_sing_up_style"
+        style="@style/bnt_outlined_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
