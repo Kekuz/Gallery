@@ -9,6 +9,14 @@ object MockupPictures {
             R.drawable.pic2,
             R.drawable.pic3,
             R.drawable.pic4,
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
         )
     }
 }

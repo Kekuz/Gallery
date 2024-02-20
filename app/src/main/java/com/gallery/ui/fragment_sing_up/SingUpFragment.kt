@@ -9,8 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.gallery.R
 import com.gallery.databinding.FragmentSingUpBinding
 import com.gallery.databinding.FragmentWelcomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SingUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSingUpBinding
