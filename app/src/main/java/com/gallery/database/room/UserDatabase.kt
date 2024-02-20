@@ -10,7 +10,7 @@ import com.gallery.database.room.UserDatabaseEntity
     entities = [UserDatabaseEntity::class],
     version = 1
 )
-@TypeConverters(DateTypeConverter::class)
+//@TypeConverters(DateTypeConverter::class)
 abstract class UserDatabase : RoomDatabase() {
     abstract val userDao: UserDao?
 }

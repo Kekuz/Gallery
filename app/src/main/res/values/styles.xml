@@ -75,6 +75,25 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="text_input_layout_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="endIconMode">custom</item>
+        <item name="errorEnabled">true</item>
+        <item name="errorIconDrawable">@drawable/ic_error</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="endIconTint">@color/gray</item>
+        <item name="helperTextTextColor">@color/error_red</item>
+        <item name="hintEnabled">false</item>
+
+
+
+    </style>
+
+
     <style name="search_edit_text_style">
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>

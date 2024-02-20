@@ -6,10 +6,9 @@ import java.util.Date
 
 @Entity("user_database")
 data class UserDatabaseEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
     val userName: String,
-    val birthday: Date,
+    val birthday: String,//TODO заменить на Date
     val phoneNumber: String,
     val email: String,
     val password: String,
