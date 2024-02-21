@@ -10,7 +10,7 @@ import java.util.Locale
 
 class DateTypeConverter {
 
-    private var df: DateFormat = SimpleDateFormat("dd.mm.yyyy", Locale.ENGLISH)
+    private var df: DateFormat = SimpleDateFormat("dd.mm.yyyy", Locale.getDefault())
 
     @TypeConverter
     fun fromTimestamp(value: String?): Date? =

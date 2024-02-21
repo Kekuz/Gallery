@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface UserDao {
 
-    @Insert//(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: UserDatabaseEntity)
 
     @Query("SELECT * FROM user_database WHERE userName == :userName")

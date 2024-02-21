@@ -4,8 +4,10 @@
         <!-- Customize your light theme here. -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:textColorHighlight">@color/gray</item>
+        <item name="android:textColorHighlight">@color/main</item>
         <item name="colorPrimary">@color/gray</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="colorSecondary">@color/main</item>
 
     </style>
 
@@ -29,6 +31,11 @@
     
     <style name="colorHighlight"  parent="ThemeOverlay.AppCompat">
         <item name="android:textColorHighlight">@color/gray</item>
+    </style>
+
+    <style name="MyCalendar" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/main</item>
+
     </style>
 
 </resources>

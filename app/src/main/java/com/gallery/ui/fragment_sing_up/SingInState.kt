@@ -1,10 +1,10 @@
 package com.gallery.ui.fragment_sing_up
 
 sealed interface SingInState{
-    data object UserNameField: SingInState
-    data object BirthdayField: SingInState
-    data object PhoneField: SingInState
-    data object EmailField: SingInState
-    data object PasswordField: SingInState
-    data object ConfirmPasswordField: SingInState
+    data class UserNameField(val error: String?): SingInState
+    data class BirthdayField(val error: String?): SingInState
+    data class PhoneField(val error: String?): SingInState
+    data class EmailField(val error: String?): SingInState
+    data class PasswordField(val error: String?): SingInState
+    data class ConfirmPasswordField(val error: String?): SingInState
 }
