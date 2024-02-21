@@ -112,6 +112,7 @@
         <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
         <item name="tabIndicator">@drawable/tab_indicator</item>
         <item name="tabMode">fixed</item>
+        <item name="tabIndicatorFullWidth">true</item>
     </style>
 
     <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">

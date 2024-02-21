@@ -11,5 +11,5 @@ interface SingUpView : MvpView {
     fun showToast(additionalMessage: String)*/
 
     @StateStrategyType(AddToEndSingleStrategy::class)
-    fun renderFieldError(state: SingInState)
+    fun renderFieldError(state: SingUpState)
 }

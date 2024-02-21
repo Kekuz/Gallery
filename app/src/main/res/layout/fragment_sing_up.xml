@@ -95,7 +95,7 @@
             android:hint="@string/user_name"
             android:inputType="textPersonName"
             android:maxLength="20"
-            android:paddingStart="8dp"
+            android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -118,10 +118,10 @@
             android:layout_height="50dp"
             android:layout_marginBottom="-2dp"
             android:autofillHints="no"
+            android:focusable="false"
             android:hint="@string/birthday"
             android:inputType=""
-            android:focusable="false"
-            android:paddingStart="8dp"
+            android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -148,7 +148,7 @@
             android:hint="@string/phone_number"
             android:inputType="phone"
             android:maxLength="15"
-            android:paddingStart="8dp"
+            android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -174,7 +174,7 @@
             android:hint="@string/email_"
             android:inputType="textEmailAddress"
             android:maxLength="256"
-            android:paddingStart="8dp"
+            android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -201,7 +201,7 @@
             android:hint="@string/password_"
             android:inputType="textPassword"
             android:maxLength="30"
-            android:paddingStart="8dp"
+            android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -214,6 +214,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         app:endIconDrawable="@drawable/ic_eye_selector"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         app:layout_constraintStart_toStartOf="@id/left_guideline"
         app:layout_constraintTop_toBottomOf="@+id/ti_password">
@@ -227,7 +228,7 @@
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:maxLength="30"
-            android:paddingStart="8dp"
+            android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>

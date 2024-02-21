@@ -10,17 +10,17 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ValidateInteractor(
+class ValidateRegisterInteractor(
     private val databaseRepository: DatabaseRepository,
     private val context: Context,
 ) {
-    suspend fun validateUserName(username: String): String? {
-        var db: Boolean
-        withContext(Dispatchers.IO) {
-            db = databaseRepository.getUser(username) == null
+    fun validateUserName(username: String): String? {
+        return if (username.length >= 3) {
+            null
+        } else {
+            context.getString(R.string.short_name)
         }
-        Log.d("validate user name", db.toString())
-        return if (db) null else context.getString(R.string.name_already_taken)
+
     }
 
     fun validateBirthday(birthday: String): String? {
@@ -52,7 +52,18 @@ class ValidateInteractor(
         }
     }
 
-    fun validateEmail(email: String): String? {
+    suspend fun validateEmail(email: String): String? {
+
+        var alreadyRegistered: Boolean
+        withContext(Dispatchers.IO) {
+            alreadyRegistered = databaseRepository.getUser(email) != null
+        }
+        Log.d("alreadyRegistered", alreadyRegistered.toString())
+
+        if(alreadyRegistered){
+            return context.getString(R.string.email_already_taken)
+        }
+
         val emailRegex =
             Regex("(?:[a-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
 

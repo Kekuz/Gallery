@@ -11,7 +11,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: UserDatabaseEntity)
 
-    @Query("SELECT * FROM user_database WHERE userName == :userName")
-    fun getByUserName(userName: String): UserDatabaseEntity?
+    @Query("SELECT * FROM user_database WHERE email == :email")
+    fun getByEmail(email: String): UserDatabaseEntity?
 
 }

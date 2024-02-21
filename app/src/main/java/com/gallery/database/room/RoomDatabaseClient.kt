@@ -18,11 +18,11 @@ class RoomDatabaseClient(private val database: UserDatabase) : DatabaseClient {
         }
     }
 
-    override suspend fun get(userName: String): User? {
+    override suspend fun get(email: String): User? {
         return CoroutineScope(Dispatchers.IO).async {
             DatabaseMapper.map(
-                database.userDao?.getByUserName(
-                    userName
+                database.userDao?.getByEmail(
+                    email
                 )
             )
         }.await()

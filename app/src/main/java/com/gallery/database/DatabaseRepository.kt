@@ -14,8 +14,8 @@ class DatabaseRepository(private val databaseClient: DatabaseClient) {
         databaseClient.save(user)
     }
 
-    suspend fun getUser(userName: String): User? {
-        return databaseClient.get(userName)
+    suspend fun getUser(email: String): User? {
+        return databaseClient.get(email)
 
     }
 

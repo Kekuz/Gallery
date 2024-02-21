@@ -1,7 +1,5 @@
 package com.gallery.ui.fragment_sing_up
 
-import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
@@ -9,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -21,7 +18,6 @@ import kotlinx.coroutines.launch
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Provider
@@ -36,95 +32,100 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
 
     private val presenter: SingUpPresenter by moxyPresenter { presenterProvider.get() }
 
-    private val calendar = Calendar.getInstance()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSingUpBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.btnSingUp.setOnClickListener {
-            with(binding) {
-                val userName = userName.text.toString()
-                val birthday = birthday.text.toString()
-                val phoneNumber = phoneNumber.text.toString()
-                val email = email.text.toString()
-                val password = password.text.toString()
-                val confirmPassword = confirmPassword.text.toString()
-
-                lifecycleScope.launch {
-                    if (presenter.validate(
-                            userName,
-                            birthday,
-                            phoneNumber,
-                            email,
-                            password,
-                            confirmPassword
-                        )
-                    ) {
-                        presenter.register(
-                            userName,
-                            birthday,
-                            phoneNumber,
-                            email,
-                            password,
-                        )
-                        findNavController().navigate(R.id.action_singUpFragment_to_mainFragment)
-                    }
-                }
-            }
-        }
-        binding.birthday.inputType = InputType.TYPE_NULL
-
-        binding.birthday.setOnClickListener {
-            showDatePicker()
-            hideKeyboard(it)
-        }
-
-        binding.btnSingIn.setOnClickListener {
-            findNavController().navigate(R.id.action_singUpFragment_to_singInFragment)
-        }
-
-        binding.btnCancel.setOnClickListener {
-            findNavController().navigateUp()
-        }
+        bindSingUpButton()
+        bindBirthdayField()
+        bindSingInButton()
+        bindCancelButton()
 
         clearErrorOnInputPassword()
     }
 
-    override fun renderFieldError(state: SingInState) = with(binding) {
+    override fun renderFieldError(state: SingUpState) = with(binding) {
         when (state) {
-            is SingInState.UserNameField -> {
+            is SingUpState.UserNameField -> {
                 tiUserName.error = state.error
             }
 
-            is SingInState.BirthdayField -> {
+            is SingUpState.BirthdayField -> {
                 tiBirthday.error = state.error
             }
 
-            is SingInState.PhoneField -> {
+            is SingUpState.PhoneField -> {
                 tiPhoneNumber.error = state.error
             }
 
-            is SingInState.EmailField -> {
+            is SingUpState.EmailField -> {
                 tiEmail.error = state.error
             }
 
-            is SingInState.PasswordField -> {
+            is SingUpState.PasswordField -> {
                 tiPassword.error = state.error
             }
 
-            is SingInState.ConfirmPasswordField -> {
+            is SingUpState.ConfirmPasswordField -> {
                 tiConfirmPassword.error = state.error
             }
+        }
+    }
+
+    private fun bindSingUpButton() = with(binding) {
+        btnSingUp.setOnClickListener {
+
+            val userName = userName.text.toString()
+            val birthday = birthday.text.toString()
+            val phoneNumber = phoneNumber.text.toString()
+            val email = email.text.toString()
+            val password = password.text.toString()
+            val confirmPassword = confirmPassword.text.toString()
+
+            lifecycleScope.launch {
+                if (presenter.register(
+                        userName,
+                        birthday,
+                        phoneNumber,
+                        email,
+                        password,
+                        confirmPassword
+                    )
+                ) {
+                    findNavController().navigate(R.id.action_singUpFragment_to_mainFragment)
+                }
+            }
+
+        }
+    }
+
+    private fun bindBirthdayField() = with(binding) {
+        birthday.inputType = InputType.TYPE_NULL
+
+        birthday.setOnClickListener {
+            showDatePicker()
+            hideKeyboard(it)
+        }
+    }
+
+    private fun bindSingInButton() = with(binding) {
+        btnSingIn.setOnClickListener {
+            findNavController().navigate(R.id.action_singUpFragment_to_singInFragment)
+        }
+    }
+
+    private fun bindCancelButton() = with(binding) {
+        btnCancel.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 
@@ -144,7 +145,7 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
         }
     }
 
-    private fun showDatePicker(){
+    private fun showDatePicker() {
         val materialDatePicker = MaterialDatePicker.Builder.datePicker()
             .setTheme(R.style.MyCalendar)
             .setTitleText(getString(R.string.enter_birthday_date))

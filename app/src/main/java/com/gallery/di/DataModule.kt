@@ -6,7 +6,8 @@ import com.gallery.database.DatabaseRepository
 import com.gallery.database.room.DatabaseClient
 import com.gallery.database.room.RoomDatabaseClient
 import com.gallery.database.room.UserDatabase
-import com.gallery.validate.ValidateInteractor
+import com.gallery.validate.ValidateLoginInInteractor
+import com.gallery.validate.ValidateRegisterInteractor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,9 +42,18 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideValidateInteractor(
+    fun provideValidateRegisterInteractor(
         databaseRepository: DatabaseRepository,
         @ApplicationContext context: Context
-    ): ValidateInteractor =
-        ValidateInteractor(databaseRepository, context)
+    ): ValidateRegisterInteractor =
+        ValidateRegisterInteractor(databaseRepository, context)
+
+    @Provides
+    @Singleton
+    fun provideValidateLoginInIteractor(
+        databaseRepository: DatabaseRepository,
+        @ApplicationContext context: Context
+    ): ValidateLoginInInteractor =
+        ValidateLoginInInteractor(databaseRepository, context)
+
 }

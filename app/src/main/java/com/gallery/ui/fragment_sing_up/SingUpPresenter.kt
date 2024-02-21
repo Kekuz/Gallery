@@ -2,7 +2,7 @@ package com.gallery.ui.fragment_sing_up
 
 import com.gallery.database.DatabaseRepository
 import com.gallery.database.model.User
-import com.gallery.validate.ValidateInteractor
+import com.gallery.validate.ValidateRegisterInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import moxy.MvpPresenter
@@ -11,28 +11,33 @@ import javax.inject.Inject
 
 class SingUpPresenter @Inject constructor(
     private val databaseRepository: DatabaseRepository,
-    private val validateInteractor: ValidateInteractor,
+    private val validateRegisterInteractor: ValidateRegisterInteractor,
 ) : MvpPresenter<SingUpView>() {
 
-    fun register(
+    suspend fun register(
         userName: String,
         birthday: String,
         phoneNumber: String,
         email: String,
         password: String,
-    ) {
-        databaseRepository.saveUser(
-            User(
-                userName,
-                birthday,
-                phoneNumber,
-                email,
-                password,
+        confirmPassword: String,
+    ) : Boolean {
+        val success = validate(userName, birthday, phoneNumber, email, password, confirmPassword)
+        if (success) {
+            databaseRepository.saveUser(
+                User(
+                    userName,
+                    birthday,
+                    phoneNumber,
+                    email,
+                    password,
+                )
             )
-        )
+        }
+        return success
     }
 
-    suspend fun validate(
+    private suspend fun validate(
         userName: String,
         birthday: String,
         phoneNumber: String,
@@ -41,19 +46,20 @@ class SingUpPresenter @Inject constructor(
         confirmPassword: String,
     ): Boolean = withContext(Dispatchers.Main) {
 
-        val userNameError = validateInteractor.validateUserName(userName)
-        val birthdayError = validateInteractor.validateBirthday(birthday)
-        val phoneNumberError = validateInteractor.validatePhoneNumber(phoneNumber)
-        val emailError = validateInteractor.validateEmail(email)
-        val passwordError = validateInteractor.validatePassword(password)
-        val confirmPasswordError = validateInteractor.validateConfirmPassword(password, confirmPassword)
+        val userNameError = validateRegisterInteractor.validateUserName(userName)
+        val birthdayError = validateRegisterInteractor.validateBirthday(birthday)
+        val phoneNumberError = validateRegisterInteractor.validatePhoneNumber(phoneNumber)
+        val emailError = validateRegisterInteractor.validateEmail(email)
+        val passwordError = validateRegisterInteractor.validatePassword(password)
+        val confirmPasswordError =
+            validateRegisterInteractor.validateConfirmPassword(password, confirmPassword)
 
-        viewState.renderFieldError(SingInState.UserNameField(userNameError))
-        viewState.renderFieldError(SingInState.BirthdayField(birthdayError))
-        viewState.renderFieldError(SingInState.PhoneField(phoneNumberError))
-        viewState.renderFieldError(SingInState.EmailField(emailError))
-        viewState.renderFieldError(SingInState.PasswordField(passwordError))
-        viewState.renderFieldError(SingInState.ConfirmPasswordField(confirmPasswordError))
+        viewState.renderFieldError(SingUpState.UserNameField(userNameError))
+        viewState.renderFieldError(SingUpState.BirthdayField(birthdayError))
+        viewState.renderFieldError(SingUpState.PhoneField(phoneNumberError))
+        viewState.renderFieldError(SingUpState.EmailField(emailError))
+        viewState.renderFieldError(SingUpState.PasswordField(passwordError))
+        viewState.renderFieldError(SingUpState.ConfirmPasswordField(confirmPasswordError))
 
 
         return@withContext userNameError == null
