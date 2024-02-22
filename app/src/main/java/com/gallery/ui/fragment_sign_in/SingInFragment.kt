@@ -28,7 +28,6 @@ class SingInFragment : MvpAppCompatFragment(), SingInView {
 
     private val presenter: SingInPresenter by moxyPresenter { presenterProvider.get() }
 
-    //TODO сделать запоминание в шаред префс
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,17 +69,17 @@ class SingInFragment : MvpAppCompatFragment(), SingInView {
             val email = email.text.toString()
             val password = password.text.toString()
 
-            /*lifecycleScope.launch {
+            lifecycleScope.launch {
                 if (presenter.loginIn(
                         email,
                         password,
                     )
                 ) {
+                    presenter.saveAuth()
                     findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
                 }
-            }*/
-            findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
-
+            }
+            //findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
         }
     }
 

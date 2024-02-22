@@ -2,6 +2,7 @@ package com.gallery.ui.fragment_sing_up
 
 import com.gallery.functional.database.DatabaseRepository
 import com.gallery.functional.database.model.User
+import com.gallery.functional.shared_prefs.SharedPrefsAuthSaveStorage
 import com.gallery.functional.validate.ValidateRegisterInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -12,7 +13,20 @@ import javax.inject.Inject
 class SingUpPresenter @Inject constructor(
     private val databaseRepository: DatabaseRepository,
     private val validateRegisterInteractor: ValidateRegisterInteractor,
+    private val sharedPrefsAuthSaveStorage: SharedPrefsAuthSaveStorage,
 ) : MvpPresenter<SingUpView>() {
+
+    fun navigateToMain(){
+        viewState.navigateToMain()
+    }
+
+    fun navigateSingIn(){
+        viewState.navigateToMain()
+    }
+
+    fun navigateToBack(){
+        viewState.navigateToMain()
+    }
 
     suspend fun register(
         userName: String,
@@ -24,15 +38,15 @@ class SingUpPresenter @Inject constructor(
     ) : Boolean {
         val success = validate(userName, birthday, phoneNumber, email, password, confirmPassword)
         if (success) {
-            databaseRepository.saveUser(
-                User(
-                    userName,
-                    birthday,
-                    phoneNumber,
-                    email,
-                    password,
-                )
+            val user = User(
+                userName,
+                birthday,
+                phoneNumber,
+                email,
+                password,
             )
+            databaseRepository.saveUser(user)
+            sharedPrefsAuthSaveStorage.saveUser(user)
         }
         return success
     }

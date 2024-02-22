@@ -32,8 +32,6 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
 
     private val presenter: SingUpPresenter by moxyPresenter { presenterProvider.get() }
 
-    //TODO сделать запоминание в шаред префс
-
     //TODO вынести навигацию в ивенты
 
     override fun onCreateView(
@@ -54,6 +52,18 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
         bindCancelButton()
 
         clearErrorOnInputPassword()
+    }
+
+    override fun navigateToMain() {
+        findNavController().navigate(R.id.action_singUpFragment_to_singInFragment)
+    }
+
+    override fun navigateToSingIn() {
+        findNavController().navigate(R.id.action_singUpFragment_to_singInFragment)
+    }
+
+    override fun navigateBack() {
+        findNavController().navigateUp()
     }
 
     override fun renderFieldError(state: SingUpState) = with(binding) {
@@ -104,7 +114,7 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
                         confirmPassword
                     )
                 ) {
-                    findNavController().navigate(R.id.action_singUpFragment_to_mainFragment)
+                    presenter.navigateToMain()
                 }
             }
 
@@ -122,13 +132,13 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
 
     private fun bindSingInButton() = with(binding) {
         btnSingIn.setOnClickListener {
-            findNavController().navigate(R.id.action_singUpFragment_to_singInFragment)
+            presenter.navigateSingIn()
         }
     }
 
     private fun bindCancelButton() = with(binding) {
         btnCancel.setOnClickListener {
-            findNavController().navigateUp()
+            presenter.navigateToBack()
         }
     }
 

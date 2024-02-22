@@ -2,6 +2,7 @@ package com.gallery.ui.fragment_sign_in
 
 import com.gallery.functional.database.DatabaseRepository
 import com.gallery.functional.database.model.User
+import com.gallery.functional.shared_prefs.SharedPrefsAuthSaveStorage
 import com.gallery.functional.validate.ValidateLoginInInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -11,6 +12,7 @@ import javax.inject.Inject
 class SingInPresenter @Inject constructor(
     private val databaseRepository: DatabaseRepository,
     private val validateLoginInInteractor: ValidateLoginInInteractor,
+    private val sharedPrefsAuthSaveStorage: SharedPrefsAuthSaveStorage,
 ) : MvpPresenter<SingInView>() {
 
     private var currentUser: User? = null
@@ -24,6 +26,10 @@ class SingInPresenter @Inject constructor(
             getUser(email)
         }
         return success
+    }
+
+    fun saveAuth() {
+        currentUser?.let { sharedPrefsAuthSaveStorage.saveUser(it) }
     }
 
     private suspend fun validate(
