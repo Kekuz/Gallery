@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment_sing_up.SingUpFragment">
 
+    <!--TODO сделать прокрутку, чтобы влезало на маленькие экраны-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_guideline"
         android:layout_width="wrap_content"

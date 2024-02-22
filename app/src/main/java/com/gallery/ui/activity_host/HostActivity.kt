@@ -13,6 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HostActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHostBinding
+
+    //TODO Сделать вложенный нав граф чтобы нельзя было вернуться на экран регистрации кнопки назад
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)

@@ -28,6 +28,8 @@ class SingInFragment : MvpAppCompatFragment(), SingInView {
 
     private val presenter: SingInPresenter by moxyPresenter { presenterProvider.get() }
 
+    //TODO сделать запоминание в шаред префс
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

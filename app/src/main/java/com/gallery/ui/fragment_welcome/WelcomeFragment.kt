@@ -13,6 +13,8 @@ import com.gallery.databinding.FragmentWelcomeBinding
 class WelcomeFragment : Fragment() {
     private lateinit var binding: FragmentWelcomeBinding
 
+    //TODO Сделать проверку авторизации в shared prefs
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
