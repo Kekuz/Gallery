@@ -34,18 +34,21 @@ class NewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recycler.adapter = adapter
-        binding.loadingGroup.isVisible = true
+        bindRecycler()
+    }
+
+    private fun bindRecycler() = with(binding) {
+        recycler.adapter = adapter
+        loadingGroup.isVisible = true
         lifecycleScope.launch {
             delay(2000)
             adapter.add(MockupPictures.get())
-            withContext(Dispatchers.Main){
-                binding.loadingGroup.isVisible = false
+            withContext(Dispatchers.Main) {
+                loadingGroup.isVisible = false
                 adapter.notifyDataSetChanged()
             }
 
         }
-
     }
 
     companion object {

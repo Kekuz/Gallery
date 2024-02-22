@@ -43,16 +43,24 @@ class WelcomeFragment : MvpAppCompatFragment(), WelcomeView {
 
         presenter.checkAuth()
         binding.btnSingIn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_singInFragment)
+            presenter.navigateToSingIn()
         }
 
         binding.btnSingUp.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_singUpFragment)
+            presenter.navigateToSingUp()
         }
     }
 
     override fun navigateAuth() {
         findNavController().navigate(R.id.action_welcomeFragment_to_navigation_main)
+    }
+
+    override fun navigateToSingIn() {
+        findNavController().navigate(R.id.action_welcomeFragment_to_singInFragment)
+    }
+
+    override fun navigateToSingUp() {
+        findNavController().navigate(R.id.action_welcomeFragment_to_singUpFragment)
     }
 
 }

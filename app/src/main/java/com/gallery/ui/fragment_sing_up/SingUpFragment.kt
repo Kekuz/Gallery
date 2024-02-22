@@ -55,7 +55,7 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
     }
 
     override fun navigateToMain() {
-        findNavController().navigate(R.id.action_singUpFragment_to_singInFragment)
+        findNavController().navigate(R.id.action_singUpFragment_to_mainFragment)
     }
 
     override fun navigateToSingIn() {
@@ -96,26 +96,15 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
 
     private fun bindSingUpButton() = with(binding) {
         btnSingUp.setOnClickListener {
-
-            val userName = userName.text.toString()
-            val birthday = birthday.text.toString()
-            val phoneNumber = phoneNumber.text.toString()
-            val email = email.text.toString()
-            val password = password.text.toString()
-            val confirmPassword = confirmPassword.text.toString()
-
             lifecycleScope.launch {
-                if (presenter.register(
-                        userName,
-                        birthday,
-                        phoneNumber,
-                        email,
-                        password,
-                        confirmPassword
-                    )
-                ) {
-                    presenter.navigateToMain()
-                }
+                presenter.register(
+                    userName.text.toString(),
+                    birthday.text.toString(),
+                    phoneNumber.text.toString(),
+                    email.text.toString(),
+                    password.text.toString(),
+                    confirmPassword.text.toString(),
+                )
             }
 
         }
@@ -123,7 +112,6 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
 
     private fun bindBirthdayField() = with(binding) {
         birthday.inputType = InputType.TYPE_NULL
-
         birthday.setOnClickListener {
             showDatePicker()
             hideKeyboard(it)

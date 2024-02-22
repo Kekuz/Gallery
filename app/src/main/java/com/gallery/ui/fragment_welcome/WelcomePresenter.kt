@@ -14,4 +14,12 @@ class WelcomePresenter @Inject constructor(
             viewState.navigateAuth()
         }
     }
+
+    fun navigateToSingUp(){
+        viewState.navigateToSingUp()
+    }
+
+    fun navigateToSingIn(){
+        viewState.navigateToSingIn()
+    }
 }

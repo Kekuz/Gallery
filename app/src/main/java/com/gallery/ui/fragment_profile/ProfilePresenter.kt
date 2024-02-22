@@ -9,7 +9,11 @@ class ProfilePresenter @Inject constructor(
 ) : MvpPresenter<ProfileView>() {
 
     private var currentUser = sharedPrefsAuthSaveStorage.getUser()!!
-    fun setFields() {
-        viewState.render(ProfileState.UserData(currentUser.userName, currentUser.birthday))
+    fun setNameAndBirthdayFields() {
+        viewState.loadUserData(currentUser.userName, currentUser.birthday)
+    }
+
+    fun navigateToSettings(){
+        viewState.navigateToSettings()
     }
 }

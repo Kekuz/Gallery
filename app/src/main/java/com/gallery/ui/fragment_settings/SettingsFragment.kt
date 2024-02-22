@@ -17,7 +17,6 @@ import javax.inject.Provider
 class SettingsFragment : MvpAppCompatFragment(), SettingsView {
 
     private lateinit var binding: FragmentSettingsBinding
-    //TODO сделать навигацию на выход из приложения
 
     @Inject
     lateinit var presenterProvider: Provider<SettingsPresenter>
@@ -38,11 +37,11 @@ class SettingsFragment : MvpAppCompatFragment(), SettingsView {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnCancel.setOnClickListener {
-            findNavController().navigateUp()
+            presenter.navigateBack()
         }
 
         binding.btnSave.setOnClickListener {
-            findNavController().navigateUp()
+            presenter.navigateBackWithSave()
         }
         binding.tvSingOut.setOnClickListener {
             presenter.singOut()
@@ -51,5 +50,13 @@ class SettingsFragment : MvpAppCompatFragment(), SettingsView {
 
     override fun navigateSingOut() {
         findNavController().navigate(R.id.action_global_welcomeFragment)
+    }
+
+    override fun navigateBack() {
+        findNavController().navigateUp()
+    }
+
+    override fun navigateBackWithSave() {
+        findNavController().navigateUp()
     }
 }

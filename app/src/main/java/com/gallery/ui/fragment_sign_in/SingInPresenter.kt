@@ -20,15 +20,15 @@ class SingInPresenter @Inject constructor(
     suspend fun loginIn(
         email: String,
         password: String,
-    ): Boolean {
-        val success = validate(email, password)
-        if (success) {
+    ) {
+        if (validate(email, password)) {
             getUser(email)
+            saveAuth()
+            navigateToMain()
         }
-        return success
     }
 
-    fun saveAuth() {
+    private fun saveAuth() {
         currentUser?.let { sharedPrefsAuthSaveStorage.saveUser(it) }
     }
 
@@ -48,8 +48,18 @@ class SingInPresenter @Inject constructor(
     }
 
     private suspend fun getUser(email: String) {
-        currentUser = databaseRepository.getUser(
-            email,
-        )
+        currentUser = databaseRepository.getUser(email)
+    }
+
+    fun navigateBack() {
+        viewState.navigateBack()
+    }
+
+    fun navigateToSingUp() {
+        viewState.navigateToSingUp()
+    }
+
+    private fun navigateToMain() {
+        viewState.navigateToMain()
     }
 }

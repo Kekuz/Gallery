@@ -16,15 +16,15 @@ class SingUpPresenter @Inject constructor(
     private val sharedPrefsAuthSaveStorage: SharedPrefsAuthSaveStorage,
 ) : MvpPresenter<SingUpView>() {
 
-    fun navigateToMain(){
+    private fun navigateToMain() {
         viewState.navigateToMain()
     }
 
-    fun navigateSingIn(){
+    fun navigateSingIn() {
         viewState.navigateToMain()
     }
 
-    fun navigateToBack(){
+    fun navigateToBack() {
         viewState.navigateToMain()
     }
 
@@ -35,9 +35,8 @@ class SingUpPresenter @Inject constructor(
         email: String,
         password: String,
         confirmPassword: String,
-    ) : Boolean {
-        val success = validate(userName, birthday, phoneNumber, email, password, confirmPassword)
-        if (success) {
+    ) {
+        if (validate(userName, birthday, phoneNumber, email, password, confirmPassword)) {
             val user = User(
                 userName,
                 birthday,
@@ -47,8 +46,8 @@ class SingUpPresenter @Inject constructor(
             )
             databaseRepository.saveUser(user)
             sharedPrefsAuthSaveStorage.saveUser(user)
+            navigateToMain()
         }
-        return success
     }
 
     private suspend fun validate(

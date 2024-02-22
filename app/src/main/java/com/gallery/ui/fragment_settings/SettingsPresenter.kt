@@ -12,4 +12,12 @@ class SettingsPresenter @Inject constructor(
         sharedPrefsAuthSaveStorage.clear()
         viewState.navigateSingOut()
     }
+
+    fun navigateBack(){
+        viewState.navigateBack()
+    }
+
+    fun navigateBackWithSave(){
+        viewState.navigateBackWithSave()
+    }
 }

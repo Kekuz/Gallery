@@ -1,7 +1,6 @@
 package com.gallery.ui.fragment_profile
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,39 +44,42 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.setFields()
+        presenter.setNameAndBirthdayFields()
 
-        binding.recycler.adapter = adapter
-        binding.progressBar.isVisible = true
+        bindRecycler()
+        bindSettingsButton()
+
+    }
+
+    private fun bindSettingsButton() = with(binding) {
+        iconSettings.setOnClickListener {
+            presenter.navigateToSettings()
+        }
+    }
+
+    private fun bindRecycler() = with(binding) {
+        recycler.adapter = adapter
+        progressBar.isVisible = true
         lifecycleScope.launch {
             delay(2000)
             adapter.add(MockupPictures.get())
             withContext(Dispatchers.Main) {
-                binding.progressBar.isVisible = false
+                progressBar.isVisible = false
                 adapter.notifyDataSetChanged()
             }
-
         }
-
-        binding.iconSettings.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
-        }
-
     }
 
-    override fun render(state: ProfileState) = with(binding) {
-        when (state) {
-            is ProfileState.UserData -> {
-                tvUsername.text = state.userName
-                tvUsername.isVisible = true
-                if(state.birthday.isNotEmpty()){
-                    tvBirthday.text = state.birthday
-                    tvBirthday.isVisible = true
-                }
+    override fun loadUserData(userName: String, birthday: String) = with(binding) {
+        tvUsername.text = userName
+        tvUsername.isVisible = true
 
-            }
+        tvBirthday.text = birthday
+        tvBirthday.isVisible = true
+    }
 
-        }
+    override fun navigateToSettings() {
+        findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
     }
 
 }

@@ -63,35 +63,38 @@ class SingInFragment : MvpAppCompatFragment(), SingInView {
         }
     }
 
+    override fun navigateBack() {
+        findNavController().navigateUp()
+    }
+
+    override fun navigateToSingUp() {
+        findNavController().navigate(R.id.action_singInFragment_to_singUpFragment)
+    }
+
+    override fun navigateToMain() {
+        findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
+    }
+
     private fun bindSingInButton() = with(binding) {
         btnSingIn.setOnClickListener {
-
-            val email = email.text.toString()
-            val password = password.text.toString()
-
             lifecycleScope.launch {
-                if (presenter.loginIn(
-                        email,
-                        password,
-                    )
-                ) {
-                    presenter.saveAuth()
-                    findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
-                }
+                presenter.loginIn(
+                    email.text.toString(),
+                    password.text.toString(),
+                )
             }
-            //findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
         }
     }
 
     private fun bindSingUpButton() = with(binding) {
         btnSingUp.setOnClickListener {
-            findNavController().navigate(R.id.action_singInFragment_to_singUpFragment)
+            presenter.navigateToSingUp()
         }
     }
 
     private fun bindCancelButton() = with(binding) {
         btnCancel.setOnClickListener {
-            findNavController().navigateUp()
+            presenter.navigateBack()
         }
     }
 
