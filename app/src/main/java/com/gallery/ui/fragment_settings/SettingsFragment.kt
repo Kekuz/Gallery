@@ -36,14 +36,20 @@ class SettingsFragment : MvpAppCompatFragment(), SettingsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnCancel.setOnClickListener {
+        presenter.renderFields()
+        bindButtons()
+    }
+
+    private fun bindButtons() = with(binding) {
+        btnCancel.setOnClickListener {
             presenter.navigateBack()
         }
 
-        binding.btnSave.setOnClickListener {
+        btnSave.setOnClickListener {
             presenter.navigateBackWithSave()
         }
-        binding.tvSingOut.setOnClickListener {
+
+        tvSingOut.setOnClickListener {
             presenter.singOut()
         }
     }
@@ -58,5 +64,17 @@ class SettingsFragment : MvpAppCompatFragment(), SettingsView {
 
     override fun navigateBackWithSave() {
         findNavController().navigateUp()
+    }
+
+    override fun renderFields(
+        userName: String,
+        birthday: String,
+        email: String,
+        phoneNumber: String
+    ) = with(binding) {
+        etUserName.setText(userName)
+        etBirthday.setText(birthday)
+        etEmail.setText(email)
+        etPhoneNumber.setText(phoneNumber)
     }
 }

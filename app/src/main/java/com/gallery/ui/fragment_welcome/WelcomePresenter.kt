@@ -9,17 +9,21 @@ class WelcomePresenter @Inject constructor(
 ) : MvpPresenter<WelcomeView>() {
     private var currentUser = sharedPrefsAuthSaveStorage.getUser()
 
-    fun checkAuth(){
-        if(currentUser != null){
+    init {
+        checkAuth()
+    }
+
+    private fun checkAuth() {
+        if (currentUser != null) {
             viewState.navigateAuth()
         }
     }
 
-    fun navigateToSingUp(){
+    fun navigateToSingUp() {
         viewState.navigateToSingUp()
     }
 
-    fun navigateToSingIn(){
+    fun navigateToSingIn() {
         viewState.navigateToSingIn()
     }
 }

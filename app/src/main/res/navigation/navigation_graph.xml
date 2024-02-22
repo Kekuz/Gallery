@@ -34,7 +34,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_singInFragment_to_singUpFragment"
-            app:destination="@id/singUpFragment" />
+            app:destination="@id/singUpFragment"
+            app:popUpTo="@id/singInFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/singUpFragment"
@@ -48,7 +50,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_singUpFragment_to_singInFragment"
-            app:destination="@id/singInFragment" />
+            app:destination="@id/singInFragment"
+            app:popUpTo="@id/singUpFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <navigation
         android:id="@+id/navigation_main"

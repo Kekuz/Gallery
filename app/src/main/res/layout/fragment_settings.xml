@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@id/label_personal_data">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userName"
+            android:id="@+id/et_userName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="-2dp"
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_user_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/birthday"
+            android:id="@+id/et_birthday"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="-2dp"
@@ -126,33 +126,6 @@
             android:focusable="false"
             android:hint="@string/birthday"
             android:inputType=""
-            android:paddingHorizontal="8dp"
-            android:singleLine="true" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_phone_number"
-        style="@style/text_input_layout_style"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:hint="@string/phone_number_"
-        app:endIconDrawable="@drawable/ic_phone"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ti_email">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="-2dp"
-            android:autofillHints="phone"
-            android:hint="@string/phone_number"
-            android:inputType="phone"
-            android:maxLength="15"
             android:paddingHorizontal="8dp"
             android:singleLine="true" />
 
@@ -171,7 +144,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_birthday">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="-2dp"
@@ -183,6 +156,33 @@
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_phone_number"
+        style="@style/text_input_layout_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:hint="@string/phone_number_"
+        app:endIconDrawable="@drawable/ic_phone"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/ti_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="-2dp"
+            android:autofillHints="phone"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:maxLength="15"
+            android:paddingHorizontal="8dp"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/label_password"

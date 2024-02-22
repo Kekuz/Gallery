@@ -32,8 +32,6 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
 
     private val presenter: SingUpPresenter by moxyPresenter { presenterProvider.get() }
 
-    //TODO вынести навигацию в ивенты
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -146,7 +144,6 @@ class SingUpFragment : MvpAppCompatFragment(), SingUpView {
         }
     }
 
-    //TODO вынести в отдельный класс
     private fun showDatePicker() {
         val materialDatePicker = MaterialDatePicker.Builder.datePicker()
             .setTheme(R.style.MyCalendar)

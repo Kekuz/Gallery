@@ -21,11 +21,11 @@ class SingUpPresenter @Inject constructor(
     }
 
     fun navigateSingIn() {
-        viewState.navigateToMain()
+        viewState.navigateToSingIn()
     }
 
     fun navigateToBack() {
-        viewState.navigateToMain()
+        viewState.navigateBack()
     }
 
     suspend fun register(

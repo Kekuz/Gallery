@@ -5,19 +5,30 @@ import moxy.MvpPresenter
 import javax.inject.Inject
 
 class SettingsPresenter @Inject constructor(
-   private val sharedPrefsAuthSaveStorage: SharedPrefsAuthSaveStorage
+    private val sharedPrefsAuthSaveStorage: SharedPrefsAuthSaveStorage
 ) : MvpPresenter<SettingsView>() {
+
+    private val currentUser = sharedPrefsAuthSaveStorage.getUser()!!
+
+    fun renderFields() {
+        viewState.renderFields(
+            currentUser.userName,
+            currentUser.birthday,
+            currentUser.email,
+            currentUser.phoneNumber
+        )
+    }
 
     fun singOut() {
         sharedPrefsAuthSaveStorage.clear()
         viewState.navigateSingOut()
     }
 
-    fun navigateBack(){
+    fun navigateBack() {
         viewState.navigateBack()
     }
 
-    fun navigateBackWithSave(){
+    fun navigateBackWithSave() {
         viewState.navigateBackWithSave()
     }
 }
