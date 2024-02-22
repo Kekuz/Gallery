@@ -1,10 +1,10 @@
-package com.gallery.database.room
+package com.gallery.functional.database.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.gallery.database.room.UserDao
-import com.gallery.database.room.UserDatabaseEntity
+import com.gallery.functional.database.room.UserDao
+import com.gallery.functional.database.room.UserDatabaseEntity
 
 @Database(
     entities = [UserDatabaseEntity::class],

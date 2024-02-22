@@ -5,14 +5,19 @@
     <string name="i_already_have_an_account">I already have an account</string>
     <string name="cancel">Cancel</string>
     <string name="sing_up">Sing Up</string>
-    <string name="user_name">User Name <font color="#ED3E3E" >*</font></string>
+    <string name="user_name_">User Name <font color="#ED3E3E">*</font></string>
+    <string name="user_name">User Name</string>
     <string name="birthday">Birthday</string>
-    <string name="phone_number">Phone number <font color="#ED3E3E" >*</font></string>
-    <string name="email_">Email <font color="#ED3E3E" >*</font></string>
-    <string name="password_">Password <font color="#ED3E3E" >*</font></string>
+    <string name="phone_number_">Phone number <font color="#ED3E3E">*</font></string>
+    <string name="phone_number">Phone number</string>
+    <string name="email_">Email <font color="#ED3E3E">*</font></string>
+    <string name="password_">Password <font color="#ED3E3E">*</font></string>
+    <string name="old_password">Old password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="confirm_password">Confirm password <font color="#ED3E3E" >*</font></string>
+    <string name="confirm_password_">Confirm password <font color="#ED3E3E">*</font></string>
     <string name="sing_in">Sing In</string>
     <string name="new_">New</string>
     <string name="popular">Popular</string>
@@ -31,5 +36,9 @@
     <string name="enter_correct_email">Enter the correct email</string>
     <string name="user_not_found">User was not found</string>
     <string name="invalid_password">Invalid password</string>
+    <string name="save">Save</string>
+    <string name="personal_data">Personal data</string>
+    <string name="you_can_delete_your_account">You can <font color="#CF497E">delete your account</font></string>
+    <string name="sing_out">Sing Out</string>
 
 </resources>

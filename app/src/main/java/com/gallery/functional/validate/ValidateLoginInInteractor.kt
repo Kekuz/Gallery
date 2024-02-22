@@ -1,10 +1,10 @@
-package com.gallery.validate
+package com.gallery.functional.validate
 
 import android.content.Context
 import android.util.Log
 import com.gallery.R
-import com.gallery.database.DatabaseRepository
-import com.gallery.database.model.User
+import com.gallery.functional.database.DatabaseRepository
+import com.gallery.functional.database.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

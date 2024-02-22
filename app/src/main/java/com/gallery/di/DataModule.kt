@@ -2,12 +2,12 @@ package com.gallery.di
 
 import android.content.Context
 import androidx.room.Room
-import com.gallery.database.DatabaseRepository
-import com.gallery.database.room.DatabaseClient
-import com.gallery.database.room.RoomDatabaseClient
-import com.gallery.database.room.UserDatabase
-import com.gallery.validate.ValidateLoginInInteractor
-import com.gallery.validate.ValidateRegisterInteractor
+import com.gallery.functional.database.DatabaseRepository
+import com.gallery.functional.database.room.DatabaseClient
+import com.gallery.functional.database.room.RoomDatabaseClient
+import com.gallery.functional.database.room.UserDatabase
+import com.gallery.functional.validate.ValidateLoginInInteractor
+import com.gallery.functional.validate.ValidateRegisterInteractor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

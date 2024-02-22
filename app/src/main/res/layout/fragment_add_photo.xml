@@ -6,10 +6,13 @@
     tools:context=".ui.fragment_add_photo.AddPhotoFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30sp"
+        style="@style/title_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/main"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:text="ADD_PHOTO" />
+        android:layout_marginHorizontal="32dp"
+        android:text="Этот экран устал, он ничего не хочет показывать" />
 
 </FrameLayout>

@@ -1,8 +1,8 @@
-package com.gallery.database.room
+package com.gallery.functional.database.room
 
 import android.util.Log
-import com.gallery.database.mapper.DatabaseMapper
-import com.gallery.database.model.User
+import com.gallery.functional.database.mapper.DatabaseMapper
+import com.gallery.functional.database.model.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

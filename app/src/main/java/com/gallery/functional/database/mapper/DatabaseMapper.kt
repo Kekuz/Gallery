@@ -1,7 +1,7 @@
-package com.gallery.database.mapper
+package com.gallery.functional.database.mapper
 
-import com.gallery.database.model.User
-import com.gallery.database.room.UserDatabaseEntity
+import com.gallery.functional.database.model.User
+import com.gallery.functional.database.room.UserDatabaseEntity
 
 object DatabaseMapper {
     fun map(input: User): UserDatabaseEntity =

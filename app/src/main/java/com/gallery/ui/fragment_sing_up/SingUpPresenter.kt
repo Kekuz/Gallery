@@ -1,8 +1,8 @@
 package com.gallery.ui.fragment_sing_up
 
-import com.gallery.database.DatabaseRepository
-import com.gallery.database.model.User
-import com.gallery.validate.ValidateRegisterInteractor
+import com.gallery.functional.database.DatabaseRepository
+import com.gallery.functional.database.model.User
+import com.gallery.functional.validate.ValidateRegisterInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import moxy.MvpPresenter

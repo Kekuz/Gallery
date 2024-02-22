@@ -1,4 +1,4 @@
-package com.gallery.database.room
+package com.gallery.functional.database.room
 
 import androidx.room.Dao
 import androidx.room.Insert

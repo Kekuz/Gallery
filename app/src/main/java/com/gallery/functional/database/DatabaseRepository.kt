@@ -1,7 +1,7 @@
-package com.gallery.database
+package com.gallery.functional.database
 
-import com.gallery.database.model.User
-import com.gallery.database.room.DatabaseClient
+import com.gallery.functional.database.model.User
+import com.gallery.functional.database.room.DatabaseClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

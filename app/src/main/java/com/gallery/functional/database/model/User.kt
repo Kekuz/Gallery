@@ -1,4 +1,4 @@
-package com.gallery.database.model
+package com.gallery.functional.database.model
 
 import java.util.Date
 

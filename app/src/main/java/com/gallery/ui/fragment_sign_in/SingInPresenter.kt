@@ -1,8 +1,8 @@
 package com.gallery.ui.fragment_sign_in
 
-import com.gallery.database.DatabaseRepository
-import com.gallery.database.model.User
-import com.gallery.validate.ValidateLoginInInteractor
+import com.gallery.functional.database.DatabaseRepository
+import com.gallery.functional.database.model.User
+import com.gallery.functional.validate.ValidateLoginInInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import moxy.MvpPresenter

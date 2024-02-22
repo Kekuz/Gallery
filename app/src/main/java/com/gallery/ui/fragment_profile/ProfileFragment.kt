@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.gallery.R
 import com.gallery.databinding.FragmentProfileBinding
 import com.gallery.ui.mockup.MockupPictures
 import com.gallery.ui.fragment_profile.recycler.ProfilePictureAdapter
@@ -42,6 +44,9 @@ class ProfileFragment : Fragment() {
                 adapter.notifyDataSetChanged()
             }
 
+        }
+        binding.iconSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
 
     }
