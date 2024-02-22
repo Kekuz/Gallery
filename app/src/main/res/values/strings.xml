@@ -18,7 +18,7 @@
     <string name="popular">Popular</string>
     <string name="_search">Search</string>
     <string name="sorry">Sorry!</string>
-    <string name="error_details">There is no pictures.\n Please come back later.</string>
+    <string name="error_details">There are no pictures.\n Please come back later.</string>
     <string name="loading">Loading…</string>
 
     <string name="short_name">Name is shorter than 3 characters</string>

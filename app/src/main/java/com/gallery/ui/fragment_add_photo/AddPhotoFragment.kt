@@ -1,4 +1,4 @@
-package com.gallery.ui.mockup
+package com.gallery.ui.fragment_add_photo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -70,7 +70,7 @@ class SingInFragment : MvpAppCompatFragment(), SingInView {
             val email = email.text.toString()
             val password = password.text.toString()
 
-            lifecycleScope.launch {
+            /*lifecycleScope.launch {
                 if (presenter.loginIn(
                         email,
                         password,
@@ -78,7 +78,8 @@ class SingInFragment : MvpAppCompatFragment(), SingInView {
                 ) {
                     findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
                 }
-            }
+            }*/
+            findNavController().navigate(R.id.action_singInFragment_to_mainFragment)
 
         }
     }

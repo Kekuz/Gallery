@@ -50,12 +50,12 @@
         app:startDestination="@id/mainFragment">
         <fragment
             android:id="@+id/addPhotoFragment"
-            android:name="com.gallery.ui.mockup.AddPhotoFragment"
+            android:name="com.gallery.ui.fragment_add_photo.AddPhotoFragment"
             android:label="fragment_add_photo"
             tools:layout="@layout/fragment_add_photo" />
         <fragment
             android:id="@+id/profileFragment"
-            android:name="com.gallery.ui.mockup.ProfileFragment"
+            android:name="com.gallery.ui.fragment_profile.ProfileFragment"
             android:label="fragment_profile"
             tools:layout="@layout/fragment_profile" />
         <fragment

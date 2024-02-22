@@ -32,6 +32,16 @@
         <item name="android:textColor">@color/gray</item>
     </style>
 
+    <style name="profile_text_style">
+        <item name="android:textSize">@dimen/normal_plus_text_size</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="profile_date_text_style">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
     <style name="bnt_style" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:backgroundTint">@color/selector_button_color</item>
         <item name="android:letterSpacing">0.04</item>

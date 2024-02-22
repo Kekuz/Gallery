@@ -1,4 +1,4 @@
-package com.gallery.ui.new_fragment.mockup
+package com.gallery.ui.mockup
 
 import com.gallery.R
 
@@ -17,6 +17,9 @@ object MockupPictures {
             R.drawable.pic2,
             R.drawable.pic3,
             R.drawable.pic4,
-        )
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic1,
+        ).shuffled()
     }
 }
