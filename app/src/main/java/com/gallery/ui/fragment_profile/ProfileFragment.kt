@@ -9,10 +9,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.gallery.R
 import com.gallery.databinding.FragmentProfileBinding
-import com.gallery.ui.mockup.MockupPictures
 import com.gallery.ui.fragment_profile.recycler.ProfilePictureAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -31,6 +31,8 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
     private val presenter: ProfilePresenter by moxyPresenter { presenterProvider.get() }
 
     private val adapter = ProfilePictureAdapter()
+
+    private var jobLoadMockup: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,6 +69,7 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
     override fun onDestroyView() {
         super.onDestroyView()
         adapter.clear()
+        jobLoadMockup?.cancel()
     }
 
     override fun navigateToSettings() {
@@ -76,7 +79,7 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
     override fun addMockupPhotos(pictures: List<Int>): Unit = with(binding) {
         recycler.adapter = adapter
         progressBar.isVisible = true
-        lifecycleScope.launch {
+        jobLoadMockup = lifecycleScope.launch {
             delay(2000)
             adapter.add(pictures)
             withContext(Dispatchers.Main) {
