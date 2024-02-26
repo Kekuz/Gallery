@@ -12,4 +12,7 @@ interface ProfileView: MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun navigateToSettings()
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun addMockupPhotos(pictures: List<Int>)
 }

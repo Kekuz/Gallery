@@ -46,7 +46,6 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
 
         presenter.setNameAndBirthdayFields()
 
-        bindRecycler()
         bindSettingsButton()
 
     }
@@ -54,19 +53,6 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
     private fun bindSettingsButton() = with(binding) {
         iconSettings.setOnClickListener {
             presenter.navigateToSettings()
-        }
-    }
-
-    private fun bindRecycler() = with(binding) {
-        recycler.adapter = adapter
-        progressBar.isVisible = true
-        lifecycleScope.launch {
-            delay(2000)
-            adapter.add(MockupPictures.get())
-            withContext(Dispatchers.Main) {
-                progressBar.isVisible = false
-                adapter.notifyDataSetChanged()
-            }
         }
     }
 
@@ -78,8 +64,26 @@ class ProfileFragment : MvpAppCompatFragment(), ProfileView {
         tvBirthday.isVisible = true
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        adapter.clear()
+    }
+
     override fun navigateToSettings() {
         findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
+    }
+
+    override fun addMockupPhotos(pictures: List<Int>): Unit = with(binding) {
+        recycler.adapter = adapter
+        progressBar.isVisible = true
+        lifecycleScope.launch {
+            delay(2000)
+            adapter.add(pictures)
+            withContext(Dispatchers.Main) {
+                progressBar.isVisible = false
+                adapter.notifyDataSetChanged()
+            }
+        }
     }
 
 }
