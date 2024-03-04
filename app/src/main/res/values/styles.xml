@@ -42,7 +42,7 @@
         <item name="android:textColor">@color/gray</item>
     </style>
 
-    <style name="bnt_style" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+    <style name="bnt_style" parent="Widget.Material3.Button.UnelevatedButton">
         <item name="android:backgroundTint">@color/selector_button_color</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textAllCaps">false</item>
@@ -53,16 +53,18 @@
         <item name="android:insetBottom">2dp</item>
     </style>
 
-    <style name="bnt_transparent_style" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="android:backgroundTint">@color/transparent</item>
+    <style name="bnt_text_style" parent="Widget.Material3.Button.TextButton">
         <item name="android:letterSpacing">0.04</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">2dp</item>
         <item name="android:textColor">@color/selector_button_color</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 
     <style name="bnt_outlined_style" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:backgroundTint">@color/transparent</item>
+        <item name="android:backgroundTint">@color/white</item>
         <item name="strokeColor">@color/selector_button_color</item>
         <item name="strokeWidth">@dimen/button_outline_width</item>
         <item name="android:letterSpacing">0.04</item>
@@ -98,7 +100,6 @@
         <item name="endIconTint">@color/gray</item>
         <item name="helperTextTextColor">@color/error_red</item>
         <item name="hintEnabled">false</item>
-
 
 
     </style>
